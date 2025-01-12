@@ -1,6 +1,6 @@
 services:
   springapp:
-    image: ksunil/springboot-app:20
+    image: ksunil/springboot-app:23
     ports:
       - 8080:8080
     networks:
