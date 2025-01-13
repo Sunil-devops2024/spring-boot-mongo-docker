@@ -16,6 +16,8 @@ services:
     environment:
      - MONGO_INITDB_ROOT_USERNAME=sunil
      - MONGO_INITDB_ROOT_PASSWORD=sunil@123
+    volumes:
+      - mongodata:/data/db
 networks:
   custombridge:
     driver: bridge
