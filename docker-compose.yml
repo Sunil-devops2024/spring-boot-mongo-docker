@@ -4,23 +4,29 @@ services:
     ports:
       - 8080:8080
     networks:
-      - custombridge
+      - custom-overlay
     environment:
       - MONGO_DB_HOSTNAME=mongo
       - MONGO_DB_USERNAME=sunil
       - MONGO_DB_PASSWORD=sunil@123
+    deploy:
+      replicas:2
+      update_config:
+         parallelism: 1
+         #dealy: 30s
+      
   mongo:
     image: ksunil/mongodb:1
     networks:
-      - custombridge
+      - custom-overlay
     environment:
      - MONGO_INITDB_ROOT_USERNAME=sunil
      - MONGO_INITDB_ROOT_PASSWORD=sunil@123
     volumes:
       - mongodata:/data/db
 networks:
-  custombridge:
-    driver: bridge
+ custom-overlay:
+    driver: overlay
 volumes:
     mongodata:
       driver: local
