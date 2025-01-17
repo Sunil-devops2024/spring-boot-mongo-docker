@@ -10,7 +10,7 @@ services:
       - MONGO_DB_USERNAME=sunil
       - MONGO_DB_PASSWORD=sunil@123
     deploy:
-      replicas:2
+      replicas: 2
       update_config:
          parallelism: 1
          #dealy: 30s
